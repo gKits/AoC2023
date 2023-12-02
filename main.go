@@ -2,37 +2,48 @@ package main
 
 import (
 	"AoC2023/day1"
+	"AoC2023/day2"
 	"bufio"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 )
 
 func main() {
 	var day int
 	var part int
+	var test bool
 	flag.IntVar(&day, "day", 0, "input the daily puzzle you want to solve")
 	flag.IntVar(&part, "part", 1, "input the part you want to solve")
+	flag.BoolVar(&test, "test", false, "use test input instead")
 	flag.Parse()
 
-	in, err := loadInput(fmt.Sprintf("./inputs/day%d", day))
+	path := fmt.Sprintf("./inputs/day%d", day)
+	if test {
+		path = fmt.Sprintf("./inputs/test_day%d", day)
+	}
+	in, err := loadInput(path)
 	if err != nil {
-		fmt.Printf(err.Error())
-		return
+		log.Fatal(err)
 	}
 
+	var res int
 	switch day {
 	case 1:
-		res, err := day1.Solve(in, part)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-		fmt.Println(res)
+		res, err = day1.Solve(in, part)
+		break
+	case 2:
+		res, err = day2.Solve(in, part)
 		break
 	default:
-		fmt.Printf("invalid day %d/n", day)
+		log.Fatal(fmt.Errorf("invalid day %d/n", day))
 	}
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(res)
 }
 
 func loadInput(path string) ([]string, error) {
