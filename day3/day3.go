@@ -1,6 +1,7 @@
 package day3
 
 import (
+	"fmt"
 	"slices"
 	"strconv"
 	"strings"
@@ -13,7 +14,7 @@ func Solve(in []string, part int) (int, error) {
 	case 2:
 		return part2(in), nil
 	default:
-		return -1, nil
+		return -1, fmt.Errorf("day3 does not have a part %d", part)
 	}
 }
 
