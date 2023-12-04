@@ -3,6 +3,7 @@ package main
 import (
 	"AoC2023/day1"
 	"AoC2023/day2"
+	"AoC2023/day3"
 	"bufio"
 	"flag"
 	"fmt"
@@ -35,6 +36,9 @@ func main() {
 		break
 	case 2:
 		res, err = day2.Solve(in, part)
+		break
+	case 3:
+		res, err = day3.Solve(in, part)
 		break
 	default:
 		log.Fatal(fmt.Errorf("invalid day %d/n", day))
