@@ -12,7 +12,7 @@ Event. All challenges are solved in [Go](https://go.dev) and its standard librar
 > `$ cd AoC2023`
 
 3. Run the solution of the desired day and part
-> `go run main.go -day {day_num} -part {part_num}`
+> `$ go run main.go -day {day_num} -part {part_num}`
 
 ### Options
 
