@@ -5,14 +5,18 @@ import (
 	"AoC2023/day2"
 	"AoC2023/day3"
 	"AoC2023/day4"
+	"AoC2023/day5"
 	"bufio"
 	"flag"
 	"fmt"
 	"log"
 	"os"
+	"time"
 )
 
 func main() {
+	start := time.Now()
+
 	var day int
 	var part int
 	var test bool
@@ -34,16 +38,14 @@ func main() {
 	switch day {
 	case 1:
 		res, err = day1.Solve(in, part)
-		break
 	case 2:
 		res, err = day2.Solve(in, part)
-		break
 	case 3:
 		res, err = day3.Solve(in, part)
-		break
 	case 4:
 		res, err = day4.Solve(in, part)
-		break
+	case 5:
+		res, err = day5.Solve(in, part)
 	default:
 		log.Fatal(fmt.Errorf("invalid day %d/n", day))
 	}
@@ -51,7 +53,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(res)
+	fmt.Printf("The result of day %d part %d is: %d\nProcess took %.5fms", day, part, res, float64(time.Since(start).Microseconds())/1000)
 }
 
 func loadInput(path string) ([]string, error) {
