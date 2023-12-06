@@ -6,6 +6,7 @@ import (
 	"AoC2023/day3"
 	"AoC2023/day4"
 	"AoC2023/day5"
+	"AoC2023/day6"
 	"bufio"
 	"flag"
 	"fmt"
@@ -46,6 +47,8 @@ func main() {
 		res, err = day4.Solve(in, part)
 	case 5:
 		res, err = day5.Solve(in, part)
+	case 6:
+		res, err = day6.Solve(in, part)
 	default:
 		log.Fatal(fmt.Errorf("invalid day %d/n", day))
 	}
@@ -53,7 +56,16 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("The result of day %d part %d is: %d\nProcess took %.5fms", day, part, res, float64(time.Since(start).Microseconds())/1000)
+
+	msg := ""
+	if test {
+		msg = fmt.Sprintf("The result of the test of day %d part %d is: %d", day, part, res)
+	} else {
+		msg = fmt.Sprintf("The result of day %d part %d is: %d", day, part, res)
+	}
+
+	fmt.Println(msg)
+	fmt.Printf("Process took %.5fms\n", float64(time.Since(start).Microseconds())/1000)
 }
 
 func loadInput(path string) ([]string, error) {
