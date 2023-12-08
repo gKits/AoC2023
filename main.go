@@ -7,6 +7,8 @@ import (
 	"AoC2023/day4"
 	"AoC2023/day5"
 	"AoC2023/day6"
+	"AoC2023/day7"
+	"AoC2023/day8"
 	"bufio"
 	"flag"
 	"fmt"
@@ -49,8 +51,12 @@ func main() {
 		res, err = day5.Solve(in, part)
 	case 6:
 		res, err = day6.Solve(in, part)
+	case 7:
+		res, err = day7.Solve(in, part)
+	case 8:
+		res, err = day8.Solve(in, part)
 	default:
-		log.Fatal(fmt.Errorf("invalid day %d/n", day))
+		log.Fatal(fmt.Errorf("invalid day %d", day))
 	}
 
 	if err != nil {
