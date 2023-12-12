@@ -66,18 +66,12 @@ func part2(in []string) int {
 		}
 	}
 
-	fmt.Println(nodes)
-
 	steps := []int{}
 	for node := range nodes {
 		if node[2] == 'A' {
 			steps = append(steps, calcSteps(node))
 		}
 	}
-
-	fmt.Println(steps)
-	fmt.Println(leastCommonMul(2, 3))
-	fmt.Println(greatCommonDiv(2, 3))
 
 	return leastCommonMul(steps[0], steps[1:]...)
 }
