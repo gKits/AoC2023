@@ -2,6 +2,9 @@ package main
 
 import (
 	"AoC2023/day1"
+	"AoC2023/day10"
+	"AoC2023/day11"
+	"AoC2023/day12"
 	"AoC2023/day2"
 	"AoC2023/day3"
 	"AoC2023/day4"
@@ -9,6 +12,7 @@ import (
 	"AoC2023/day6"
 	"AoC2023/day7"
 	"AoC2023/day8"
+	"AoC2023/day9"
 	"bufio"
 	"flag"
 	"fmt"
@@ -55,6 +59,14 @@ func main() {
 		res, err = day7.Solve(in, part)
 	case 8:
 		res, err = day8.Solve(in, part)
+	case 9:
+		res, err = day9.Solve(in, part)
+	case 10:
+		res, err = day10.Solve(in, part)
+	case 11:
+		res, err = day11.Solve(in, part)
+	case 12:
+		res, err = day12.Solve(in, part)
 	default:
 		log.Fatal(fmt.Errorf("invalid day %d", day))
 	}
