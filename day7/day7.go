@@ -111,7 +111,7 @@ func handLevel(hand string) int {
 	}
 }
 
-func handLevelJoker(hand string) (int, string) {
+func handLevelJoker(hand string) int {
 	h := map[rune]int{}
 	m := 0
 	var best rune
@@ -140,7 +140,7 @@ func handLevelJoker(hand string) (int, string) {
 		}
 	}
 	newHand := strings.ReplaceAll(hand, "J", string(best))
-	return handLevel(newHand), newHand
+	return handLevel(newHand)
 }
 
 func handSortFunc(a, b string) int {
@@ -158,11 +158,11 @@ func handSortFunc(a, b string) int {
 }
 
 func handSortFuncJoker(a, b string) int {
-	lvlA, newA := handLevelJoker(a)
-	lvlB, newB := handLevelJoker(b)
+	lvlA := handLevelJoker(a)
+	lvlB := handLevelJoker(b)
 	if lvlA == lvlB {
 		for i := 0; i < 5; i++ {
-			rankA, rankB := rank2[rune(newA[i])], rank2[rune(newB[i])]
+			rankA, rankB := rank2[rune(a[i])], rank2[rune(b[i])]
 			if rankA != rankB {
 				return rankA - rankB
 			}
